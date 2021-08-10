@@ -23,8 +23,31 @@ namespace FrenchTownStudiosV2.UI.MVC
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Scripts/lib/bootstrap/css/bootstrap.css",
+                      "~/Content/site.css",
+                      "~/Content/img/favicon.png",
+                      "~/Content/img/apple-touch-icon.png",
+                      "~/Scripts/lib/bootstrap/css/bootstrap.min.css",
+                      "~/Scripts/lib/font-awesome/css/font-awesome.min.css",
+                      "~/Scripts/lib/ionicons/css/ionicons.min.css",
+                      "~/Scripts/lib/photostack/photostack.css",
+                      "~/Scripts/lib/fullpage-menu/fullpage-menu.css",
+                      "~/Scripts/lib/cubeportfolio/cubeportfolio.css",
+                      "~/Scripts/lib/superslides/superslides.css",
+                      "~/Content/css/style.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/template").Include(
+                "~/scripts/lib/jquery/jquery.min.js",
+                "~/scripts/lib/modernizr/modernizr.min.js",
+                "~/scripts/lib/bootstrap/js/bootstrap.min.js",
+                "~/scripts/lib/php-mail-form/validate.js",
+                "~/scripts/lib/easing/easing.min.js",
+                "~/scripts/lib/cubeportfolio/cubeportfolio.js",
+                "~/scripts/lib/classie/classie.js",
+                "~/scripts/lib/fullpage-menu/fullpage-menu.js",
+                "~/scripts/lib/photostack/photostack.js",
+                "~/scripts/lib/superslides/superslides.js",
+                "~/scripts/js/main.js"));
         }
     }
 }
