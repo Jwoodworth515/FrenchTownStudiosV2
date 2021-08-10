@@ -64,6 +64,16 @@ namespace FrenchTownStudiosV2.UI.MVC.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "First Name is required")]
+        [Display(Name = "First Name")]
+        [StringLength(50, ErrorMessage = "Value must be 50 characters or less")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is required")]
+        [Display(Name = "Last Name")]
+        [StringLength(50, ErrorMessage = "Value must be 50 characters or less")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

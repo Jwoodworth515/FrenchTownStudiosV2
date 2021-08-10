@@ -491,6 +491,12 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrenchTownStudiosV2.DATA.EF\FrenchTownStudiosV2.DATA.EF.csproj">
+      <Project>{f6ec2011-929e-4989-a627-554e8536b022}</Project>
+      <Name>FrenchTownStudiosV2.DATA.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
