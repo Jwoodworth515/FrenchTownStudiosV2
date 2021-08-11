@@ -17,7 +17,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         public ActionResult ReservationTable()
         {
             DbSet<Reservation> reservations = db.Reservations;
-            return View();
+            return View(reservations.ToList());
         }
     }
 }

@@ -34,6 +34,7 @@ namespace FrenchTownStudiosV2.UI.MVC
                       "~/Scripts/lib/fullpage-menu/fullpage-menu.css",
                       "~/Scripts/lib/cubeportfolio/cubeportfolio.css",
                       "~/Scripts/lib/superslides/superslides.css",
+                      "~/Content/DataTables/css/jquery.dataTables.min.css",
                       "~/Content/css/style.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/template").Include(
@@ -47,6 +48,7 @@ namespace FrenchTownStudiosV2.UI.MVC
                 "~/scripts/lib/fullpage-menu/fullpage-menu.js",
                 "~/scripts/lib/photostack/photostack.js",
                 "~/scripts/lib/superslides/superslides.js",
+                "~/Scripts/DataTables/jquery.dataTables.min.js",
                 "~/scripts/js/main.js"));
         }
     }

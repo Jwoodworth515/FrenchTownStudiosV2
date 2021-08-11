@@ -744,10 +744,10 @@
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\EmailConfirmation.cshtml" />
+    <Content Include="Views\Filters\ReservationTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -767,6 +767,9 @@
       <Project>{f6ec2011-929e-4989-a627-554e8536b022}</Project>
       <Name>FrenchTownStudiosV2.DATA.EF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
