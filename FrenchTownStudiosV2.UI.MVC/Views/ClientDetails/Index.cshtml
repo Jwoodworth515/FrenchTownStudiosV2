@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FrenchTownStudiosV2.DATA.EF.ClientDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+
+<div class="container">
+    <h2>Index</h2>
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
+                    {
+                        @Html.ActionLink("Create New", "Create") @:|
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) @:|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
+                    }
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

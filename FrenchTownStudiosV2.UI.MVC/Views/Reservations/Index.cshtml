@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FrenchTownStudiosV2.DATA.EF.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+
+<div class="container">
+
+    <h2>Index</h2>
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientAsset.AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location.LocationName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientAsset.AssetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.LocationName)
+                </td>
+                <td>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
+                    {
+                        @Html.ActionLink("Create New", "Create") @:|
+                        if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) @:|
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
+                        }
+                    }
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

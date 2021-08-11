@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FrenchTownStudiosV2.DATA.EF.ClientAsset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+
+<div class="container">
+
+    <h2>Index</h2>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetPhoto)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.SpecialNotes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientDetail.FirstName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetPhoto)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.SpecialNotes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAdded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientDetail.FirstName)
+                </td>
+                <td>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin, Employee, Client"))
+                    {
+                        @Html.ActionLink("Details", "Details", new { id = item.ClientAssetsId }) @:|
+                        @Html.ActionLink("Create New", "Create") @:|
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ClientAssetsId }) @:|
+                        if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ClientAssetsId })
+                            }
+                        }
+                    </td>
+            </tr>
+        }
+
+    </table>
+</div>

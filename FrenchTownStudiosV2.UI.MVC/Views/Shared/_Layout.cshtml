@@ -46,73 +46,81 @@
     <!-- Custom navbar -->
     <div class="custom-navbar"><a class="fm-button" href="#">Menu</a></div>
     <div class="sidemenu">
+        <div>@Html.Partial("_LoginPartial")</div>
         <ul class="fm-first-level">
-            <li><a href="#menu1">Main Menu</a></li>
-            <li><a href="#menu2">Pages Menu</a></li>
-            <li><a href="#menu3">Blog Menu</a></li>
+            @*<li><a href="#menu1">Main Menu</a></li>
+                <li><a href="#menu2">Pages Menu</a></li>
+                <li><a href="#menu3">Blog Menu</a></li>*@
         </ul>
         <nav id="menu1" class="active">
-            <a href="index.html">
-                <span class="subtitle">Basic Index. Polaroid header, services, portfolio, clients logos.</span>
-                Main Index Version
+            <a href="@Url.Action("Index", "Home")">
+                @*<span class="subtitle">Basic Index. Polaroid header, services, portfolio, clients logos.</span>*@
+                Home
             </a>
             @*<a href="index2.html">
                     <span class="subtitle">Basic Index with slider. Some objects are removed. Clean Layout.</span>
                     Main Index Variation
                 </a>*@
-            <a href="works.html">
-                <span class="subtitle">Portfolio section. Grid style.</span>
-                Our Works
-            </a>
-            <a href="about.html">
-                <span class="subtitle">More information about our agency. Simple & elegant.</span>
-                About Us
-            </a>
-            <a href="services.html">
-                <span class="subtitle">List of services provided by us.</span>
-                Services
-            </a>
-            <a href="contact.html">
-                <span class="subtitle">We are kind people and love to speak with our clients.</span>
+            <a href="@Url.Action("Contact", "Home")">
+                @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
                 Contact Us
             </a>
+            @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Client"))
+            {
+                <a href="@Url.Action("Index", "ClientAssets")">
+                    @*<span class="subtitle">Portfolio section. Grid style.</span>*@
+                    Client Photo Shoot Information
+                </a>
+                <a href="@Url.Action("Index", "ClientDetails")">
+                    @*<span class="subtitle">More information about our agency. Simple & elegant.</span>*@
+                    Client Account Details
+                </a>
+                <a href="@Url.Action("Index", "Locations")">
+                    @*<span class="subtitle">List of services provided by us.</span>*@
+                    Locations
+                </a>
+                <a href="@Url.Action("Index", "Reservations")">
+                    @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
+                    Reservations
+                </a>
+            }
         </nav>
-        <nav id="menu2">
-            <a href="team.html">
-                <span class="subtitle">We are an awesome team. Take a look.</span>
-                Meet The Team
-            </a>
-            <a href="single-work.html">
-                <span class="subtitle">Single work page. Information about a project.</span>
-                Single Work
-            </a>
-            <a href="clients.html">
-                <span class="subtitle">List of our clients and some cool testimonials.</span>
-                Our Clients
-            </a>
-            <a href="pricing.html">
-                <span class="subtitle">A pricing list. Show your prices with style.</span>
-                Pricing
-            </a>
-            <a href="404.html">
-                <span class="subtitle">Sometimes errors happens.</span>
-                404
-            </a>
-        </nav>
-        <nav id="menu3">
-            <a href="blog.html">
-                <span class="subtitle">Main blog layout list.</span>
-                Blog List
-            </a>
-            <a href="blog-post.html">
-                <span class="subtitle">First variation of blog posts.</span>
-                Blog Post
-            </a>
-            <a href="blog-posts-2.html">
-                <span class="subtitle">Second variation of blog posts.</span>
-                Blog Posts 2
-            </a>
-        </nav>
+        @*<nav id="menu2">
+                <a href="team.html">
+                    <span class="subtitle">We are an awesome team. Take a look.</span>
+                    Meet The Team
+                </a>
+                <a href="single-work.html">
+                    <span class="subtitle">Single work page. Information about a project.</span>
+                    Single Work
+                </a>
+                <a href="clients.html">
+                    <span class="subtitle">List of our clients and some cool testimonials.</span>
+                    Our Clients
+                </a>
+                <a href="pricing.html">
+                    <span class="subtitle">A pricing list. Show your prices with style.</span>
+                    Pricing
+                </a>
+                <a href="404.html">
+                    <span class="subtitle">Sometimes errors happens.</span>
+                    404
+                </a>
+            </nav>
+            <nav id="menu3">
+                <a href="blog.html">
+                    <span class="subtitle">Main blog layout list.</span>
+                    Blog List
+                </a>
+                <a href="blog-post.html">
+                    <span class="subtitle">First variation of blog posts.</span>
+                    Blog Post
+                </a>
+                <a href="blog-posts-2.html">
+                    <span class="subtitle">Second variation of blog posts.</span>
+                    Blog Posts 2
+                </a>
+            </nav>*@
     </div>
     <!-- /END CUSTOM NAVBAR -->
 

@@ -7,9 +7,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FrenchTownStudiosV2.DATA.EF/*.DBFrenchTownStudiosV2Metadata*/
 {
-    class DBFrenchTownStudiosV2Metadata
-    {
-
         #region ClientAssetMetadata
 
         public class ClientAssetMetadata
@@ -149,5 +146,4 @@ namespace FrenchTownStudiosV2.DATA.EF/*.DBFrenchTownStudiosV2Metadata*/
 
         #endregion
 
-    }
 }
