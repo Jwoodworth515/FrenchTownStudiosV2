@@ -134,7 +134,7 @@ namespace FrenchTownStudiosV2.DATA.EF/*.DBFrenchTownStudiosV2Metadata*/
 
             [Required(ErrorMessage = "Reservation Date is required")]
             [Display(Name = "Reservation Date")]
-            [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+            [DisplayFormat(DataFormatString = "{0:D}", ApplyFormatInEditMode = true)]
             public System.DateTime ReservationDate { get; set; }
 
             [MetadataType(typeof(ReservationMetadata))]

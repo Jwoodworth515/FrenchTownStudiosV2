@@ -11,10 +11,12 @@
 <div class="container">
 
     <h2>ReservationTable</h2>
-
-    @*<p>
-            @Html.ActionLink("Create New", "Create")
-        </p>*@
+    @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Client"))
+    {
+    <p>
+        @Html.ActionLink("Create New", "Create", "Reservations")
+    </p>
+    }
     <table class="table" id="data-table">
         <thead>
             <tr>
@@ -45,15 +47,11 @@
                         @Html.DisplayFor(modelItem => item.Location.LocationName)
                     </td>
                     <td>
-                        @if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
-                        {
-                            @Html.ActionLink("Create New", "Create") @:|
-                            if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) @:|
                                 @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
                             }
-                        }
                     </td>
                 </tr>
             }

@@ -162,6 +162,10 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                     newUserDeets.FirstName = model.FirstName;
                     newUserDeets.LastName = model.LastName;
 
+                    UserManager.AddToRole(user.Id, "Client");
+
+
+
                     FSDPRegistrationSystemEntities db = new FSDPRegistrationSystemEntities();
                     db.ClientDetails.Add(newUserDeets);
                     db.SaveChanges();

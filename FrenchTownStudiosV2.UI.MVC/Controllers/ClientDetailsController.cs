@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FrenchTownStudiosV2.DATA.EF;
+using Microsoft.AspNet.Identity;
 
 namespace FrenchTownStudiosV2.UI.MVC.Controllers
 {
@@ -18,8 +19,18 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // GET: ClientDetails
         public ActionResult Index()
         {
-            return View(db.ClientDetails.ToList());
+            if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                return View(db.ClientDetails.ToList());
+            }
+            else
+            {
+                string currentUserID = User.Identity.GetUserId();
+                return View(db.ClientDetails.Where(cd => cd.ClientId == currentUserID).ToList());
+            }
         }
+
+
 
         // GET: ClientDetails/Details/5
         //public ActionResult Details(string id)

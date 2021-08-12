@@ -12,9 +12,12 @@
 
     <h2>Index</h2>
 
-    @*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
+    @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Client"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
     <table class="table">
         <tr>
             <th>
@@ -24,11 +27,11 @@
                 @Html.DisplayNameFor(model => model.AssetPhoto)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.SpecialNotes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.SpecialNotes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.DateAdded)
             </th>
@@ -48,11 +51,11 @@
                     @Html.DisplayFor(modelItem => item.AssetPhoto)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.SpecialNotes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsActive)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.SpecialNotes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.DateAdded)
                 </td>
@@ -60,17 +63,16 @@
                     @Html.DisplayFor(modelItem => item.ClientDetail.FirstName)
                 </td>
                 <td>
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin, Employee, Client"))
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee") || User.IsInRole("Client"))
                     {
                         @Html.ActionLink("Details", "Details", new { id = item.ClientAssetsId }) @:|
-                        @Html.ActionLink("Create New", "Create") @:|
                         @Html.ActionLink("Edit", "Edit", new { id = item.ClientAssetsId }) @:|
-                        if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
+                        if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Client"))
                         {
                             @Html.ActionLink("Delete", "Delete", new { id = item.ClientAssetsId })
-                            }
                         }
-                    </td>
+                    }
+                </td>
             </tr>
         }
 

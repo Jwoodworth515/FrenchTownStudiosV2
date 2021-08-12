@@ -10,51 +10,49 @@
 
 <div class="container">
 
-    <h2>Index</h2>
+    <h2>Reservation List</h2>
 
-    @*<p>
+    @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Client"))
+    {
+        <p>
             @Html.ActionLink("Create New", "Create")
-        </p>*@
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientAsset.AssetName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location.LocationName)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        </p>
+    }
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReservationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClientAsset.AssetName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location.LocationName)
-                </td>
-                <td>
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin, Client"))
-                    {
-                        @Html.ActionLink("Create New", "Create") @:|
-                        if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) @:|
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
-                        }
-                    }
-                    }
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReservationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientAsset.AssetName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location.LocationName)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReservationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientAsset.AssetName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location.LocationName)
+                    </td>
+                    <td>
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) @:|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
