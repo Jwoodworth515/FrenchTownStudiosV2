@@ -52,8 +52,22 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // GET: ClientAssets/Create
         public ActionResult Create()
         {
+
             ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName");
             return View();
+
+            //if (Request.IsAuthenticated && User.IsInRole("Client"))
+            //{
+            //    string currentUserID = User.Identity.GetUserId();
+            //    var clientAssets = db.ClientAssets.Where(an => an.AssetName == currentUserID);
+            //    //var clientAssets = db.ClientAssets.Where(c => c.ClientId == currentUserID);
+            //    return View();
+            //}
+            //else
+            //{
+            //    ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName");
+            //    return View();
+            //}
         }
 
         // POST: ClientAssets/Create
@@ -94,10 +108,12 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                     //no matter what, update the PhotoUrl with the value of the file variable
                 }
                 clientAsset.AssetPhoto = file;
-
+                clientAsset.ClientId = User.Identity.GetUserId();
+                
                 db.ClientAssets.Add(clientAsset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName", clientAsset.ClientId);

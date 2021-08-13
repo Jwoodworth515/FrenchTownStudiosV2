@@ -22,6 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.LocationName)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.Address)
                 </th>
@@ -45,6 +48,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationDate)
                 </td>
                 @*<td>
                         @Html.DisplayFor(modelItem => item.Address)

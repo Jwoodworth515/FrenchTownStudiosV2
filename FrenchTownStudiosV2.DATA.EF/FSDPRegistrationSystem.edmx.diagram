@@ -12,6 +12,15 @@
         <AssociationConnector Association="FSDPRegistrationSystemModel.FK_ClientAssets_ClientDetails" ManuallyRouted="false" />
         <AssociationConnector Association="FSDPRegistrationSystemModel.FK_Reservations_ClientAssets" ManuallyRouted="false" />
         <AssociationConnector Association="FSDPRegistrationSystemModel.FK_Reservations_Locations" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.AspNetRole" Width="1.5" PointX="5.75" PointY="6.5" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="5" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="7.75" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.AspNetUser" Width="1.5" PointX="8" PointY="5.375" />
+        <EntityTypeShape EntityType="FSDPRegistrationSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="FSDPRegistrationSystemModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="FSDPRegistrationSystemModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="FSDPRegistrationSystemModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

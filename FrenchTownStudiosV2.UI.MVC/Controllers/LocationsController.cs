@@ -47,7 +47,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LocationId,LocationName,Address,City,State,ZipCode,ReservationLimit")] Location location)
+        public ActionResult Create([Bind(Include = "LocationId,LocationName,Address,City,State,ZipCode,ReservationLimit,ReservationDate")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Address,City,State,ZipCode,ReservationLimit")] Location location)
+        public ActionResult Edit([Bind(Include = "LocationId,LocationName,Address,City,State,ZipCode,ReservationLimit,ReservationDate")] Location location)
         {
             if (ModelState.IsValid)
             {

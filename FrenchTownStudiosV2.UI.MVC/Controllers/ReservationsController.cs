@@ -61,10 +61,25 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ReservationId,ClientAssetsId,LocationId,ReservationDate")] Reservation reservation)
         {
-            if (ModelState.IsValid)
+            var location = db.Locations.Where(l => l.LocationId == reservation.LocationId).FirstOrDefault();
+            var nbrReservation = db.Reservations.Where(r => r.LocationId == reservation.LocationId).Count();
+
+            if (ModelState.IsValid && User.IsInRole("Admin"))
             {
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            if (ModelState.IsValid && nbrReservation < location.ReservationLimit)
+            {
+                db.Reservations.Add(reservation);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            if (ModelState.IsValid && nbrReservation >= location.ReservationLimit)
+            {
                 return RedirectToAction("Index");
             }
 

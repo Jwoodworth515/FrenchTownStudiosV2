@@ -50,10 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="ClientAsset.cs">
       <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="ClientDetail.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="DBFrenchTownStudiosV2Metadata\DBFrenchTownStudiosV2Metadata.cs" />
@@ -77,6 +92,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs">
+      <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>FSDPRegistrationSystem.tt</DependentUpon>
     </Compile>
   </ItemGroup>

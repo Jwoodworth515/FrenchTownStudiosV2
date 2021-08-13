@@ -12,24 +12,18 @@ namespace FrenchTownStudiosV2.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Location
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Location()
+        public AspNetRole()
         {
-            this.Reservations = new HashSet<Reservation>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int LocationId { get; set; }
-        public string LocationName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
-        public byte ReservationLimit { get; set; }
-        public System.DateTime ReservationDate { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }
