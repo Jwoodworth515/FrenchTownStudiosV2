@@ -24,12 +24,13 @@
                 @Html.DisplayFor(model => model.AssetName)
             </dd>
 
-            <dt>
+            @*<dt>
                 @Html.DisplayNameFor(model => model.AssetPhoto)
-            </dt>
+            </dt>*@
 
             <dd>
-                @Html.DisplayFor(model => model.AssetPhoto)
+                @*@Html.DisplayFor(model => model.AssetPhoto)*@
+                <img src="~/Content/img/@Model.AssetPhoto" alt="@Model.AssetName" title="@Model.AssetName" />
             </dd>
 
             <dt>

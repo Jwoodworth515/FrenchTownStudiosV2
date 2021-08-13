@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using FrenchTownStudiosV2.DATA.EF;
 using Microsoft.AspNet.Identity;
+using System.Drawing;
+using FrenchTownStudiosV2.UI.MVC.Utilities;
+
 
 namespace FrenchTownStudiosV2.UI.MVC.Controllers
 {
@@ -58,10 +61,40 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientAssetsId,AssetName,ClientId,AssetPhoto,SpecialNotes,IsActive,DateAdded")] ClientAsset clientAsset)
+        public ActionResult Create([Bind(Include = "ClientAssetsId,AssetName,ClientId,AssetPhoto,SpecialNotes,IsActive,DateAdded")] ClientAsset clientAsset, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                string file = "noimage.png";
+
+                if (image != null)
+                {
+                    file = image.FileName;
+                    string ext = file.Substring(file.LastIndexOf("."));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    //Check that the uploaded file is in our list of acceptable exts and that the file size <= 4mb max from ASP.NET
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        //create a new file name using a GUID
+                        file = Guid.NewGuid() + ext;
+
+                        //save the image
+
+                        string savePath = Server.MapPath("~/Content/img/");
+
+                        Image convertedImage = Image.FromStream(image.InputStream);
+
+                        int maxImageSize = 500;
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+
+                    }
+                    //no matter what, update the PhotoUrl with the value of the file variable
+                }
+                clientAsset.AssetPhoto = file;
+
                 db.ClientAssets.Add(clientAsset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,10 +125,51 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientAssetsId,AssetName,ClientId,AssetPhoto,SpecialNotes,IsActive,DateAdded")] ClientAsset clientAsset)
+        public ActionResult Edit([Bind(Include = "ClientAssetsId,AssetName,ClientId,AssetPhoto,SpecialNotes,IsActive,DateAdded")] ClientAsset clientAsset, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+
+                //check to see if a new file has been uploaded. If not, the HiddenFor() in the View will maintain the original value (image)
+                string file = "noimage.png";
+
+                if (image != null)
+                {
+                    //get the name
+                    file = image.FileName;
+
+                    //capture the extension
+                    string ext = file.Substring(file.LastIndexOf("."));
+
+                    //Create a "Whitelisted" array of acceptable exts
+                    string[] goodExts = { ".jpg", ".jpeg", ".png", ".gif" };
+
+                    //Check the extension and file size
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        //create a new file name
+                        file = Guid.NewGuid() + ext;
+
+                        //Resize the image
+                        string savePath = Server.MapPath("~/Content/img/");
+
+                        Image convertedImage = Image.FromStream(image.InputStream);
+
+                        int maxImageSize = 500;
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+
+                        if (clientAsset.AssetPhoto != null && clientAsset.AssetPhoto != "noimage.png")
+                        {
+                            string path = Server.MapPath("~/Content/img/");
+                            ImageUtility.Delete(path, clientAsset.AssetPhoto);
+                        }
+                    }
+                    //update the property of the book object
+                }
+                clientAsset.AssetPhoto = file;
+
                 db.Entry(clientAsset).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -125,6 +199,10 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ClientAsset clientAsset = db.ClientAssets.Find(id);
+            string path = Server.MapPath("~/Content/img/");
+            ImageUtility.Delete(path, clientAsset.AssetPhoto);
+
+
             db.ClientAssets.Remove(clientAsset);
             db.SaveChanges();
             return RedirectToAction("Index");

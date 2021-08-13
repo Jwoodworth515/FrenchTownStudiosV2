@@ -48,7 +48,8 @@
                     @Html.DisplayFor(modelItem => item.AssetName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AssetPhoto)
+                    @*@Html.DisplayFor(modelItem => item.AssetPhoto)*@
+                    <img src="~/Content/img/t_@item.AssetPhoto" alt="@item.AssetName" title="@item.AssetName"/>
                 </td>
                 @*<td>
                         @Html.DisplayFor(modelItem => item.SpecialNotes)

@@ -49,8 +49,8 @@
                     <td>
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) @:|
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
+                                @Html.ActionLink("Edit", "Edit", "Reservations", new { id = item.ReservationId },null) @:|
+                                @Html.ActionLink("Delete", "Delete", "Reservations", new { id = item.ReservationId },null)
                             }
                     </td>
                 </tr>
