@@ -7,6 +7,7 @@ using System.Net.Mail;
 
 namespace FrenchTownStudiosV2.UI.MVC.Controllers
 {
+    [HandleError]
     public class HomeController : Controller
     {
         [HttpGet]
