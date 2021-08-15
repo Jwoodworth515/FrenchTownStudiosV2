@@ -1,8 +1,9 @@
 .photostack {
-	background: #ddd;
-	position: relative;
-	text-align: center;
-	overflow: hidden;
+    background: #A79A74;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    /*background-color: #A79A74;*/
 }
 
 .js .photostack {

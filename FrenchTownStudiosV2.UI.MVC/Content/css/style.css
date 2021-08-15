@@ -16,27 +16,34 @@
     font-family: 'Roboto Slab',Arial,sans-serif;
 }
 body {
-	background: #f8f8f8;
-	margin: 0;
-	height: 100%;
-	z-index: 1000;
-	color: #696E74;
+    background: #f8f8f8;
+    margin: 0;
+    height: 100%;
+    z-index: 1000;
+    color: #3B4E66;
+    background-size: unset;
+    background-attachment: fixed;
+    background-color: #687a90;
+    text-shadow: 1px 1px 1px #333;
+    background-image: url('../img/bricks1.jpg');
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Slab',Arial,sans-serif;
-	font-weight: 700;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #333;
 }
 
 p {
-	padding: 0;
-	margin-bottom: 12px;
+    padding: 0;
+    margin-bottom: 12px;
     font-family: 'Roboto Slab',Arial,sans-serif;
-	font-weight: 300;
-	font-size: 15px;
-	line-height: 24px;
-	color: #696E74;
-	margin-top: 10px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 24px;
+    color: #FFF;
+    margin-top: 10px;
+    text-shadow: 1px 1px 1px #3B4E66;
 }
 
 html,
@@ -133,7 +140,7 @@ a img {
 }
 
 .section-bg-color {
-	background-color: #eaeaea;
+    background-color: #687a90;
 }
 
 .section-works {
@@ -224,9 +231,9 @@ a img {
 ################################################################# */
 
 .services-bordered {
-	padding: 30px 15px;
-	border: 3px double;
-	border-color: #e8e8e8;
+    padding: 30px 15px;
+    border: 3px double;
+    border-color: #A79A74;
 }
 
 .services-bordered h4 {
@@ -679,4 +686,11 @@ sup {
 
 .credits a {
   color: #b3a681;
+}
+
+.pushItDownStyle {
+    color: #FFFFFF;
+    background-color: rgba(59, 78, 102, .9);
+    border: medium solid #3b4e66;
+    padding-bottom: 20px;
 }

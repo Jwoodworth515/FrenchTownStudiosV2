@@ -42,14 +42,13 @@
 </head>
 
 <body>
-
     <!-- Custom navbar -->
     <div class="custom-navbar"><a class="fm-button" href="#">Menu</a></div>
     <div class="sidemenu">
-        <div>@Html.Partial("_LoginPartial")</div>
+        @*<div>@Html.Partial("_LoginPartial")</div>*@
         <ul class="fm-first-level">
-            @*<li><a href="#menu1">Main Menu</a></li>
-                <li><a href="#menu2">Pages Menu</a></li>
+            <li style="color: #a79a74">@Html.Partial("_LoginPartial")</li>
+            @*<li><a href="#menu2">Pages Menu</a></li>
                 <li><a href="#menu3">Blog Menu</a></li>*@
         </ul>
         <nav id="menu1" class="active">
@@ -58,9 +57,9 @@
                 Home
             </a>
             @*<a href="index2.html">
-            <span class="subtitle">Basic Index with slider. Some objects are removed. Clean Layout.</span>
-            Main Index Variation
-        </a>*@
+                    <span class="subtitle">Basic Index with slider. Some objects are removed. Clean Layout.</span>
+                    Main Index Variation
+                </a>*@
             <a href="@Url.Action("Contact", "Home")">
                 @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
                 Contact Us
@@ -88,10 +87,10 @@
                 }
                 else
                 {
-                <a href="@Url.Action("Index", "Reservations")">
-                    @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
-                    Reservations
-                </a>
+                    <a href="@Url.Action("Index", "Reservations")">
+                        @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
+                        Reservations
+                    </a>
                 }
             }
         </nav>
@@ -140,7 +139,7 @@
         <div class="container centered ptb">
             <div class="col-md-2 col-md-offset-1">
                 <i class="icon ion-ios7-location-outline large-icon"></i>
-                <h5>HEAD OFFICE</h5>
+                <h5>STUDIO</h5>
                 <p>1102 2nd Street, Saint Charles, Mo.</p>
             </div>
             <div class="col-md-2 col-md-offset-2">
@@ -151,7 +150,7 @@
             <div class="col-md-2 col-md-offset-2">
                 <i class="icon ion-ios7-paperplane-outline large-icon"></i>
                 <h5>QUERIES</h5>
-                <p>support@mail.com</p>
+                <p>support@frenchtownstudios.com</p>
             </div>
         </div>
     </section>
@@ -162,10 +161,10 @@
     <section id="end" class="section-footer">
         <div class="container centered ptb">
             <div class="col-md-6 col-md-offset-3">
-                <h3>Polaroyd Template</h3>
-                <p>Mellentesque habitant morbi tristique senectus<br /> et netus et malesuada famesac turpis egestas.</p>
+                <h3>Frenchtown Studios</h3>
+                <p>Est. 2021<br />Owned and Operated by<br />Stephanie Woodworth</p>
                 <p class="mt">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
                 </p>
