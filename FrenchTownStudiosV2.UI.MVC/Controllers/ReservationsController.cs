@@ -49,9 +49,20 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         // GET: Reservations/Create
         public ActionResult Create()
         {
-            ViewBag.ClientAssetsId = new SelectList(db.ClientAssets, "ClientAssetsId", "AssetName");
-            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "LocationName");
-            return View();
+            if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                ViewBag.ClientAssetsId = new SelectList(db.ClientAssets, "ClientAssetsId", "AssetName");
+                ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "NameAndDate");
+                return View();
+            }
+            else
+            {
+                string currentUserID = User.Identity.GetUserId();
+                var reservations = db.ClientAssets.Where(d => d.ClientId == currentUserID);
+                ViewBag.ClientAssetsId = new SelectList(reservations.ToList(), "ClientAssetsId", "AssetName");
+                ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "NameAndDate");
+                return View();
+            }
         }
 
         // POST: Reservations/Create

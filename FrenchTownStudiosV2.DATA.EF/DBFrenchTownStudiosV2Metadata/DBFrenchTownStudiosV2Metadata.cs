@@ -35,7 +35,7 @@ namespace FrenchTownStudiosV2.DATA.EF/*.DBFrenchTownStudiosV2Metadata*/
         [Display(Name = "Active Status")]
         public bool IsActive { get; set; }
 
-        [Required(ErrorMessage = "Date Added is required")]
+        //[Required(ErrorMessage = "Date Added is required")]
         [Display(Name = "Date Added")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public System.DateTime DateAdded { get; set; }
@@ -117,7 +117,7 @@ namespace FrenchTownStudiosV2.DATA.EF/*.DBFrenchTownStudiosV2Metadata*/
     [MetadataType(typeof(LocationMetadata))]
     public partial class Location
     {
-
+        public string NameAndDate { get { return $"{LocationName} - {ReservationDate:d}"; } }
     }
 
     #endregion

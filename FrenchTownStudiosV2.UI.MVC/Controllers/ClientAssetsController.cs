@@ -55,20 +55,9 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
 
             ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName");
             return View();
-
-            //if (Request.IsAuthenticated && User.IsInRole("Client"))
-            //{
-            //    string currentUserID = User.Identity.GetUserId();
-            //    var clientAssets = db.ClientAssets.Where(an => an.AssetName == currentUserID);
-            //    //var clientAssets = db.ClientAssets.Where(c => c.ClientId == currentUserID);
-            //    return View();
-            //}
-            //else
-            //{
-            //    ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName");
-            //    return View();
-            //}
         }
+
+
 
         // POST: ClientAssets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -109,11 +98,11 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                 }
                 clientAsset.AssetPhoto = file;
                 clientAsset.ClientId = User.Identity.GetUserId();
-                
+
+                clientAsset.DateAdded = DateTime.Now;
                 db.ClientAssets.Add(clientAsset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
 
             ViewBag.ClientId = new SelectList(db.ClientDetails, "ClientId", "FirstName", clientAsset.ClientId);
