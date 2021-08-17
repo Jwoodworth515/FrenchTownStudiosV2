@@ -57,9 +57,9 @@
                 Home
             </a>
             @*<a href="index2.html">
-            <span class="subtitle">Basic Index with slider. Some objects are removed. Clean Layout.</span>
-            Main Index Variation
-        </a>*@
+                    <span class="subtitle">Basic Index with slider. Some objects are removed. Clean Layout.</span>
+                    Main Index Variation
+                </a>*@
             <a href="@Url.Action("Contact", "Home")">
                 @*<span class="subtitle">We are kind people and love to speak with our clients.</span>*@
                 Contact Us
@@ -92,7 +92,7 @@
                         Reservations
                     </a>
                 }
-            <a href="~/Content/img/TestDoc.pdf" target="_blank" alt="Project Documentation">Project Documentation</a>
+                <a href="~/Content/img/TestDoc.pdf" target="_blank" alt="Project Documentation">Project Documentation</a>
             }
             @*<a href="@Url.Action("Documentation","Home")"></a>*@
         </nav>
@@ -172,7 +172,7 @@
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-pinterest"></i></a>
                 </p>
-                <a href="http://www.jacobwoodworth.com" target="_blank">Jacob Woodworth &copy; - <strong>2021</strong> All rights reserved</a>
+                <a href="http://www.jacobwoodworth.com" target="_blank">Jacob Woodworth Copyright &copy; - <strong>@DateTime.Now.Year</strong> All rights reserved</a>
                 <div class="credits" style="color: #2f2f2f">
                     <!--
                       You are NOT allowed to delete the credit link to TemplateMag with free version.
@@ -200,6 +200,16 @@
 
     <!-- Template Main Javascript File -->
     @*<script src="~/scripts/js/main.js"></script>*@
+
+
+    @*<script>
+        $('.menu li').each(function () {
+            if ($(this).find('a').attr('href') == window.location.pathname) {
+                $(this).addClass('active');
+            }
+        });
+    </script>*@
+
 
 </body>
 </html>

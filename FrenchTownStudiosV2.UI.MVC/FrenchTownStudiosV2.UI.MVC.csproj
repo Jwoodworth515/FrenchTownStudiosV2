@@ -356,11 +356,13 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\img\370-lakeside-park.jpg" />
     <Content Include="Content\img\apple-touch-icon.png" />
     <Content Include="Content\img\bricks.jpg" />
     <Content Include="Content\img\bricks1.jpg" />
     <Content Include="Content\img\camera.png" />
     <Content Include="Content\img\cbp-sprite.png" />
+    <Content Include="Content\img\Eco-Park-Gazebo.jpg" />
     <Content Include="Content\img\Felix.jpg" />
     <Content Include="Content\img\Flowers.JPG" />
     <Content Include="Content\img\FTS-Logo-Navy_TRANSPARENT.png" />
@@ -386,6 +388,7 @@
     <Content Include="Content\img\IndexHeader\9.1.jpg" />
     <Content Include="Content\img\noimage.png" />
     <Content Include="Content\img\Senior.jpg" />
+    <Content Include="Content\img\studio.jpeg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
