@@ -16,13 +16,17 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your app description page.";
+        [HttpGet]
+        public ActionResult About()
+        {
+            return View();
+        }
 
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult Documentation()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Contact()
