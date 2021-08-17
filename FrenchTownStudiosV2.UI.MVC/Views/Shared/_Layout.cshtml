@@ -202,13 +202,16 @@
     @*<script src="~/scripts/js/main.js"></script>*@
 
 
-    @*<script>
-        $('.menu li').each(function () {
-            if ($(this).find('a').attr('href') == window.location.pathname) {
+    <script>
+        $('nav a').each(function () {
+
+            if ($(this).attr('href') == window.location.pathname) {
+
                 $(this).addClass('active');
             }
         });
-    </script>*@
+    </script>
+
 
 
 </body>
