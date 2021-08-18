@@ -60,7 +60,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                 string currentUserID = User.Identity.GetUserId();
                 var reservations = db.ClientAssets.Where(d => d.ClientId == currentUserID);
                 ViewBag.ClientAssetsId = new SelectList(reservations.ToList(), "ClientAssetsId", "AssetName");
-                ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "NameAndDate");
+                ViewBag.LocationId = new SelectList(db.Locations.Where(l => l.ReservationDate > DateTime.Now), "LocationId", "NameAndDate");
                 return View();
             }
         }
@@ -88,9 +88,6 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            //if (ModelState.IsValid && nbrReservation < location.ReservationLimit && location.ReservationDate.Date < DateTime.Now)
-            //I can't get this logic to work yet, going to push and debug later today.
 
             if (ModelState.IsValid && nbrReservation >= location.ReservationLimit)
             {
