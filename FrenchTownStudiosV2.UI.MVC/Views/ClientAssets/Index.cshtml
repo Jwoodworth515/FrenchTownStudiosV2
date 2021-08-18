@@ -32,9 +32,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.IsActive)
                 </th>*@
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.DateAdded)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.ClientDetail.FirstName)
             </th>
@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.AssetPhoto)*@
-                    <img src="~/Content/img/t_@item.AssetPhoto" alt="@item.AssetName" title="@item.AssetName"/>
+                    <img src="~/Content/img/t_@item.AssetPhoto" alt="@item.AssetName" title="@item.AssetName" />
                 </td>
                 @*<td>
                         @Html.DisplayFor(modelItem => item.SpecialNotes)
@@ -57,9 +57,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.IsActive)
                     </td>*@
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.DateAdded)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.ClientDetail.FirstName)
                 </td>
@@ -79,3 +79,4 @@
 
     </table>
 </div>
+

@@ -23,6 +23,8 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ClientAssetsId)
         @Html.HiddenFor(model => model.AssetPhoto)
+        @Html.HiddenFor(model => model.AssetName)
+        @Html.HiddenFor(model => model.DateAdded)
 
         <div class="form-group">
             @Html.LabelFor(model => model.AssetName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,6 +43,11 @@
                     @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
                 </div>
             </div>
+        }
+
+        else
+        {
+            @Html.HiddenFor(model => model.ClientId)
         }
 
         <div class="form-group">
@@ -63,15 +70,15 @@
 
         @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Employee"))
         {
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.DisplayFor(model => model.IsActive)
-                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.DisplayFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
-        </div>
         }
 
         <div class="form-group">

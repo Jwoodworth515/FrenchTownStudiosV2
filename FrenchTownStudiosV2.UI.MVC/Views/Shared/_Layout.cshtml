@@ -8,6 +8,7 @@
     <meta content="Full Stack Web Development Project" name="description">
     <meta name="author" content="Jacob Woodworth">
 
+    <link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" rel="stylesheet" />
 
     <!-- Favicons -->
     @*<link href="~/Content/img/favicon.png" rel="icon">
@@ -92,8 +93,8 @@
                         Reservations
                     </a>
                 }
-                <a href="~/Content/img/FSDProjectDocumentation.pdf" target="_blank" alt="Project Documentation">Project Documentation</a>
             }
+            <a href="~/Content/img/FSDProjectDocumentation.pdf" target="_blank" alt="Project Documentation">Project Documentation</a>
             @*<a href="@Url.Action("Documentation","Home")"></a>*@
         </nav>
         @*<nav id="menu2">
@@ -158,6 +159,7 @@
     </section>
 
     @Scripts.Render("~/bundles/template")
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
     @RenderSection("scripts", required: false)
 
     <section id="end" class="section-footer">
@@ -197,6 +199,7 @@
         <script src="~/scripts/lib/fullpage-menu/fullpage-menu.js"></script>
         <script src="~/scripts/lib/photostack/photostack.js"></script>
         <script src="~/scripts/lib/superslides/superslides.js"></script>*@
+
 
     <!-- Template Main Javascript File -->
     @*<script src="~/scripts/js/main.js"></script>*@
