@@ -89,6 +89,9 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            //if (ModelState.IsValid && nbrReservation < location.ReservationLimit && location.ReservationDate.Date < DateTime.Now)
+            //I can't get this logic to work yet, going to push and debug later today.
+
             if (ModelState.IsValid && nbrReservation >= location.ReservationLimit)
             {
                 return RedirectToAction("Index");
