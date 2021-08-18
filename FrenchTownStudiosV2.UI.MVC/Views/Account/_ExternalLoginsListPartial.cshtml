@@ -1,24 +1,20 @@
 ﻿@model FrenchTownStudiosV2.UI.MVC.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<br />
-<br />
-<br />
+<div class="container">
 
-<div class="container pushItDownStyle">
-
-    <h4>Use another service to log in.</h4>
-    <hr />
+    @*<h4>Use another service to log in.</h4>
+    <hr />*@
     @{
         var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
         if (loginProviders.Count() == 0)
         {
-            <div class="pushItDownStyle">
+            @*<div class="pushItDownStyle">
                 <p>
                     There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
                     for details on setting up this ASP.NET application to support logging in via external services.
                 </p>
-            </div>
+            </div>*@
         }
         else
         {
