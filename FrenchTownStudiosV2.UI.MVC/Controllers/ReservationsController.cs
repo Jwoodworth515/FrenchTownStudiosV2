@@ -52,7 +52,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
             if (Request.IsAuthenticated && User.IsInRole("Admin"))
             {
                 ViewBag.ClientAssetsId = new SelectList(db.ClientAssets, "ClientAssetsId", "AssetName");
-                ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "NameAndDate");
+                ViewBag.LocationId = new SelectList(db.Locations.Where(l => l.ReservationDate > DateTime.Now), "LocationId", "NameAndDate");
                 return View();
             }
             else
@@ -79,7 +79,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
             {
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ReservationTable", "Filters");
             }
 
             if (ModelState.IsValid && nbrReservation < location.ReservationLimit)
@@ -123,6 +123,12 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ReservationId,ClientAssetsId,LocationId,ReservationDate")] Reservation reservation)
         {
+            if (ModelState.IsValid && User.IsInRole("Admin"))
+            {
+                db.Entry(reservation).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ReservationTable", "Filters");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(reservation).State = EntityState.Modified;
@@ -157,6 +163,13 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
             Reservation reservation = db.Reservations.Find(id);
             db.Reservations.Remove(reservation);
             db.SaveChanges();
+
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("ReservationTable", "Filters");
+
+            }
+
             return RedirectToAction("Index");
         }
 
