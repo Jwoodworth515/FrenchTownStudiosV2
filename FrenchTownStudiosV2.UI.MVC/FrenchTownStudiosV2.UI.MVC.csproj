@@ -736,6 +736,7 @@
     <Content Include="Views\Filters\ReservationTable.cshtml" />
     <Content Include="Views\Error\ShootHappens.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Error\ShootHappensLimit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

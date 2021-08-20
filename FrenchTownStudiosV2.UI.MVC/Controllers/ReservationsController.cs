@@ -91,7 +91,7 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
 
             if (ModelState.IsValid && nbrReservation >= location.ReservationLimit)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("ShootHappensLimit", "Error");
             }
 
             ViewBag.ClientAssetsId = new SelectList(db.ClientAssets, "ClientAssetsId", "AssetName", reservation.ClientAssetsId);

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ShootHappensLimit";
+}
+
+<h2>ShootHappens</h2>
+
+<div class="container pushItDownStyle">
+    <div class="row mt3 presentation">
+        <div class="centered">
+            <i class="icon ion-ios7-help-outline large-icon"></i>
+            <h1>Reservation Limit Error</h1>
+            <hr>
+        </div>
+        <div class="col-lg-6 col-lg-offset-3 centered">
+            <h3>Sometimes Shoot Happens</h3>
+            <p>The requested Location and Date has reached the Reservation Limit</p>
+            <p>Please make another selection.</p>
+            <p class="mt"><a href="@Url.Action("Create", "Reservations")" class="btn btn-lg btn-theme">Take Me Back</a></p>
+        </div>
+
+    </div>
+    <!-- /row -->
+</div>

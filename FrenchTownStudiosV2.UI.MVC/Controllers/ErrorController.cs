@@ -18,5 +18,10 @@ namespace FrenchTownStudiosV2.UI.MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult ShootHappensLimit()
+        {
+            return View();
+        }
     }
 }
